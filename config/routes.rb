@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'usuario/new'
-
   root 'static_pages#home'
-  
+  get  '/cadastro',  to: 'usuario#new'
 end

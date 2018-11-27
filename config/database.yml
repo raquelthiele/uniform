@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: uniform
+  database: UNIFORM
   username: uniform
   password: uniform
 
