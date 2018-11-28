@@ -1,3 +1,37 @@
 <% provide(:title, 'Cadastro') %>
 <h1>Cadastro</h1>
-<p>This will be a signup page for new users.</p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@usuario) do |f| %>
+      <%= f.label :cpf %>
+      <%= f.text_field :cpf %>
+
+      <%= f.label :nome %>
+      <%= f.text_field :nome %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :celular %>
+      <%= f.text_field :celular %>
+
+      <%= f.label :residencial %>
+      <%= f.text_field :residencial %>
+
+      <%= f.label :type %>
+      <%= f.text_field :type %>
+
+      <%= f.label :number %>
+      <%= f.text_field :number %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmação" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Criar Conta", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

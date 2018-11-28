@@ -1,3 +1,3 @@
 class OpcaoRequerimento < ApplicationRecord
-	validates :nome, presence: true
+  validates :nome, presence: true
 end
