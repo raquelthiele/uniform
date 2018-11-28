@@ -4,32 +4,37 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@usuario) do |f| %>
+      <%= render 'shared/error_messages' %>
       <%= f.label :cpf %>
-      <%= f.text_field :cpf %>
+      <%= f.text_field :cpf, class: 'form-control' %>
 
       <%= f.label :nome %>
-      <%= f.text_field :nome %>
+      <%= f.text_field :nome, class: 'form-control' %>
 
       <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, class: 'form-control' %>
 
       <%= f.label :celular %>
-      <%= f.text_field :celular %>
+      <%= f.text_field :celular, class: 'form-control' %>
 
       <%= f.label :residencial %>
-      <%= f.text_field :residencial %>
+      <%= f.text_field :residencial, class: 'form-control' %>
 
-      <%= f.label :type %>
-      <%= f.text_field :type %>
+      <%= f.label :tipo %>
+      <%= f.text_field :tipo, class: 'form-control' %>
 
-      <%= f.label :number %>
-      <%= f.text_field :number %>
+      <%= f.label :matricula %>
+      <%= f.text_field :matricula, class: 'form-control' %>
+
+      <%= f.label :siape %>
+      <%= f.text_field :siape, class: 'form-control' %>
 
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :password_confirmation, "Confirmação" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation,
+        class: 'form-control' %>
 
       <%= f.submit "Criar Conta", class: "btn btn-primary" %>
     <% end %>
