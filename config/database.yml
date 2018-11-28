@@ -84,4 +84,4 @@ production:
   <<: *default
   database: uniform_production
   username: uniform
-  password: uniform
+  password: <%= ENV['UNIFORM_DATABASE_PASSWORD'] %>
