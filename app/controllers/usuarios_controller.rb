@@ -10,6 +10,7 @@ class UsuariosController < ApplicationController
   def create
     @usuario = Usuario.new(usuario_params)
     if @usuario.save
+      log_in @usuario
       flash[:success] = "Obrigada por se cadastrar no Uniform!"
       redirect_to @usuario
     else
