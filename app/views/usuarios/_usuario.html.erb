@@ -1,0 +1,9 @@
+<li>
+  <%= link_to usuario.nome, usuario %>
+  | <%= usuario.email %>
+  <% if current_usuario.tecnico? && !current_usuario?(usuario) %>
+    | <%= link_to "Excluir", usuario, method: :delete,
+                                     data: { confirm: "Tem certeza?" } 
+      %>
+  <% end %>
+</li>

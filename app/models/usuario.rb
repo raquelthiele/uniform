@@ -15,7 +15,8 @@ class Usuario < ApplicationRecord
   validates :residencial, allow_blank: true, length: { is: 11 },
     numericality: { only_integer: true }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 },
+    allow_nil: true
   validates :tipo, presence: true
 
   # Returns the hash digest of the given string.
@@ -23,5 +24,20 @@ class Usuario < ApplicationRecord
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def tecnico?
+    # current_usuario.tipo?
+    true
+  end
+
+  def professor?
+    # current_usuario.tipo?
+    true
+  end
+
+  def aluno?
+    # current_usuario.tipo?
+    true
   end
 end

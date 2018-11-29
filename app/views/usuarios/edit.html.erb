@@ -1,10 +1,11 @@
-<% provide(:title, 'Cadastro') %>
-<h1>Cadastro</h1>
+<% provide(:title, "Edição de usuario") %>
+<h1>Edite o seu perfil</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@usuario) do |f| %>
       <%= render 'shared/error_messages' %>
+
 
       <%= f.label :cpf, "CPF" %>
       <%= f.text_field :cpf, class: 'form-control' %>
@@ -37,7 +38,7 @@
       <%= f.password_field :password_confirmation,
         class: 'form-control' %>
 
-      <%= f.submit "Criar Conta", class: "btn btn-primary" %>
+      <%= f.submit "Salvar Alterações", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
