@@ -9,6 +9,8 @@ class UsuariosController < ApplicationController
 
   def show
     @usuario = Usuario.find(params[:id])
+    @requerimentos_requeridos = @usuario.requerimentos_requeridos.paginate(page: params[:page])
+    @requerimentos_atribuidos = @usuario.requerimentos_atribuidos.paginate(page: params[:page])
   end
 
   def new
@@ -62,15 +64,6 @@ class UsuariosController < ApplicationController
       )
     end
     # Before filters
-
-    # Confirms a logged-in usuario.
-    def logged_in_usuario
-      unless logged_in?
-        store_location
-        flash[:danger] = "Por favor, faça login."
-        redirect_to login_url
-      end
-    end
 
     # Confirms the correct usuario.
     def correct_usuario

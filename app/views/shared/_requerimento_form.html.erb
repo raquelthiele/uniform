@@ -1,0 +1,9 @@
+<%= form_for(@requerimento) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :descricao, placeholder: "Detalhes do requerimento" %>
+    <%= f.collection_select :opcao_requerimento_id, OpcaoRequerimento.order(:nome),:id,:nome, include_blank: false %>
+
+  </div>
+  <%= f.submit "Enviar", class: "btn btn-primary" %>
+<% end %>

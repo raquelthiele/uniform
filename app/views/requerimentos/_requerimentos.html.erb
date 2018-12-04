@@ -1,0 +1,20 @@
+<% if @requerimentos_requeridos.any? %>
+  <li>
+    <%= link_to "Editar", 
+                  edit_requerimentos_path(requerimentos_requeridos) %>
+    <span class="descricao"><%= requerimentos_requeridos.descricao %></span>
+    <span class="timestamp">
+      Criado a <%= time_ago_in_words(requerimentos_requeridos.data_criacao) %> atrás.
+    </span>
+  </li>
+<% end %>
+<% if @requerimentos_atribuidos.any? %>
+  <li id="requerimento-<%= @requerimentos_atribuidos.id %>">
+    <%= link_to "Editar", 
+                  edit_requerimentos_atribuidos_path(requerimentos_atribuidos) %>
+    <span class="descricao"><%= requerimentos_atribuidos.descricao %></span>
+    <span class="timestamp">
+      Criado a <%= time_ago_in_words(requerimentos_atribuidos.data_criacao) %> atrás.
+    </span>
+  </li>
+<% end %>

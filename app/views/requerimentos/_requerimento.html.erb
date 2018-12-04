@@ -1,0 +1,15 @@
+<li>
+  <%= link_to "Editar", edit_requerimento_path(requerimento) %>
+  Código: <%= requerimento.id %>
+  | Requerente: <%= Usuario.find(requerimento.requerente_id).nome %>
+  | Opção: <%= OpcaoRequerimento.find(requerimento.opcao_requerimento_id).nome %>
+  | Descrição: <%= requerimento.descricao %>
+  | Status: <%= StatusRequerimento.find(requerimento.status_requerimento_id).nome %>
+  | Data de Criação: <%= requerimento.data_criacao %>
+  <% if requerimento.atribuido_id? %>
+    | Atribuído: <%= Usuario.find(requerimento.atribuido_id).nome %>
+  <% end %>
+  <% if requerimento.data_conclusao? %>
+    | Data de Conclusão: <%= requerimento.data_conclusao %>
+  <% end %>
+</li>

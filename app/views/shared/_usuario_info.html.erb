@@ -1,0 +1,3 @@
+<h1><%= current_usuario.nome %></h1>
+<span><%= link_to "Ver meu perfil", current_usuario %></span>
+<span><%= pluralize(current_usuario.requerimentos_requeridos.count, "requerimento") %></span>

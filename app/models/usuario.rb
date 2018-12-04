@@ -1,5 +1,8 @@
 class Usuario < ApplicationRecord
 
+  has_many :requerimentos_requeridos, class_name: "Requerimento", foreign_key: "requerente_id"
+  # has_many :requerimentos_atribuidos, class_name: "Requerimento", foreign_key: "atribuido_id"
+
   attr_accessor :tipo, :matricula, :siape
 
   before_save { self.email = email.downcase }
@@ -24,6 +27,16 @@ class Usuario < ApplicationRecord
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def requerimentos
+    Requerimento.where("requerente_id = ? OR atribuido_id = ?", self.id, self.id)
+  end
+  def requerimentos_requeridos
+    Requerimento.where("requerente_id = ? ", self.id)
+  end
+  def requerimentos_atribuidos
+    Requerimento.where("atribuido_id = ?", self.id)
   end
 
   def tecnico?
